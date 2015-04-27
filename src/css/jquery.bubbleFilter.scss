@@ -1,0 +1,85 @@
+#bubble-filter {
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+.bubble-filter-input {
+	color: #999;
+	background-color: white;
+	min-height: 60px;
+	line-height: 60px;
+	padding: 0 15px 0 15px;
+
+	.tag {
+		background-color: #333;
+		color: #fff;
+		padding: 3px 10px;
+		margin-right: 5px;
+		display: inline-block;
+		line-height: 35px;
+
+		.fa-close {
+			margin-left: 5px;
+
+			&:hover {
+				display: pointer;
+			}
+		}
+
+	}
+
+}
+
+
+.bubble-filter-tag-container {
+	display: none;
+	background-color: white;
+	position: absolute;
+	z-index: 1000;
+
+	.bubble-filter-tag-container-column {
+		padding: 15px;
+		margin: 0;
+		float: left;
+		list-style-type: none;
+
+		li {
+			font-size: 12px;
+			line-height: 1.5em;
+			color: #333;
+			list-style-type: none;
+			margin-bottom: 5px;
+
+			h3 {
+				font-size: 13px;
+				line-height: 1.5em;
+			}
+		}
+
+		li.bubble-filter-tag {
+		
+			&.selected {
+				color: #aaa;
+			}
+
+			&:not(.selected) {
+				cursor: pointer;
+				
+				&:hover {
+					color: #666;
+				}
+			}
+		}
+	}
+}
+
+/* Clear fix hack from https://css-tricks.com/snippets/css/clear-fix/ */
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	content: "";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
