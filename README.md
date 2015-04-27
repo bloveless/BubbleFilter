@@ -1,2 +1,65 @@
-# BubbleFilter
-Filter any list of objects in jquery using easy to use callbacks and fancy bubbles to display the current filtered item
+#JQuery BubbleFilter
+This is a very simple filtering plugin. It takes only three parameters and will produce a fancy filtering div that allows your users to filter large sets of data easily.
+
+##Parameters
+
+**placeholderText**: The text that will be placed inside the bubble filter element when there are no options selected. The **default** value is 'Click here to select attributes to filter by'.
+
+**selectedTagCallback**: This function will be called with the currently selected tags after a tag is selected or removed. **default** is and undefined function. The callback will do nothing until this is populated. 
+
+**closeButtonClass**: The close button next to the tag in the bar will have an icon with this class added next to it. This is the button that removes the tag from the selected filters. NOTE: I'm using font-awesome in the demo so the **default** class is 'fa fa-close'.
+
+**tags**: This is a javascript object of tags that will be displayed in the dropdown when the bubble filter div is clicked on.
+
+##Initialize the function
+```
+var tags = {
+    "Column 1": {
+        1: "Tag 1",
+        2: "Tag 2",
+        3: "Tag 3",
+        4: "Tag 4",
+        5: "Tag 5",
+        6: "Tag 6",
+    },
+    "Column 2": {
+        7: "Tag 7",
+        8: "Tag 8",
+        9: "Tag 9",
+        10: "Tag 10",
+        11: "Tag 11",
+    },
+    "Column 3": {
+        12: "Tag 12",
+        13: "Tag 13",
+        14: "Tag 14",
+        15: "Tag 15",
+    },
+    "Column 4": {
+        16: "Tag 16",
+        17: "Tag 17",
+        18: "Tag 18",
+        19: "Tag 19",
+        20: "Tag 20",
+    },
+    "Column 5": {
+        21: "Tag 21",
+        22: "Tag 22",
+        23: "Tag 23",
+        24: "Tag 24",
+        25: "Tag 25",
+    },
+};
+
+$(function() {
+    $('#bubble-filter').bubbleFilter({
+        tags: tags,
+        placeholderText: "Click here to selected attributes to filter by",
+        closeButtonClass: "fa fa-close",
+        selectedTagCallback: function(selectedTags) {
+            console.log(selectedTags);
+            // Perform any action you need to filter your objects by the selected tags here
+        },
+    });
+});
+```
