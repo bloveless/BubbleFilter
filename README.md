@@ -69,4 +69,4 @@ Then in your body you will include
 <div id="bubble-filter"></div>
 ```
 ##Development
-To ease development use ```grunt watch```. This will watch for any changes in the css and js files and update them if any change is detected.
+To ease development use ```grunt watch```. This will watch for any changes in the css and js files and recompile them, if necessary, and place the compiled files into the dist directory.
