@@ -12,6 +12,7 @@ This is a very simple filtering plugin. It takes only three parameters and will 
 **tags**: This is a javascript object of tags that will be displayed in the dropdown when the bubble filter div is clicked on.
 
 ##Initialize the function
+In your javascript you will need to include this along with the includes for the dist/js/jquery.bubbleFilter.min.js and dist/css/jquery.bubbleFilter.min.css and jQuery itself. The tags can be generated somehow, but they need to be in the format that this tags object is.
 ```
 var tags = {
     "Column 1": {
@@ -63,3 +64,9 @@ $(function() {
     });
 });
 ```
+Then in your body you will include
+```
+<div id="bubble-filter"></div>
+```
+##Development
+To ease development use ```grunt watch```. This will watch for any changes in the css and js files and update them if any change is detected.
