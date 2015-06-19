@@ -1,6 +1,10 @@
 #JQuery BubbleFilter
 This is a very simple filtering plugin. It takes only three parameters and will produce a fancy filtering div that allows your users to filter large sets of data easily.
 
+The css used in the this plugin is scss. There is one parameter at the top of the scss file that allows you set the width of the page to stack the columns rather than display in columns. All responsive like.
+
+To compile the scss and minify the javascript run `grunt` or `grunt watch`.
+
 ##Parameters
 
 **placeholderText**: The text that will be placed inside the bubble filter element when there are no options selected. The **default** value is 'Click here to select attributes to filter by'.
@@ -8,6 +12,10 @@ This is a very simple filtering plugin. It takes only three parameters and will 
 **selectedTagCallback**: This function will be called with the currently selected tags after a tag is selected or removed. **default** is and undefined function. The callback will do nothing until this is populated. 
 
 **closeButtonClass**: The close button next to the tag in the bar will have an icon with this class added next to it. This is the button that removes the tag from the selected filters. NOTE: I'm using font-awesome in the demo so the **default** class is 'fa fa-close'.
+
+**scrollToInput**: Scroll the window back to the input area after a filter has been selected. **default** is true.
+
+**scrollOffset**: When scrolling back to the input sometimes there is a floating menubar in the way or you might want some leeway for the input area, this will scroll to the input area and leave this many pixels between the input area and the top of the page. **default** 90.
 
 **tags**: This is a javascript object of tags that will be displayed in the dropdown when the bubble filter div is clicked on.
 

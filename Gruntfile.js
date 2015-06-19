@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'dist/css/jquery.bubbleFilter.min.css': 'src/css/jquery.bubbleFilter.scss',
+					'dist/css/jquery.bubbleFilter.min.css': 'src/scss/jquery.bubbleFilter.scss',
 				}
 			},
 		},
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 				debug: false,
 			},
 			css: {
-				files: ['src/css/*.scss'],
+				files: ['src/scss/*.scss'],
 				tasks: ['sass'],
 				debug: false,
 			},

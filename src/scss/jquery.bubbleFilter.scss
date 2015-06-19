@@ -1,3 +1,5 @@
+$width-before-column-collapse: 768px;
+
 #bubble-filter {
 	border-bottom: 2px solid rgba(0,0,0,0.2);
 }
@@ -35,11 +37,16 @@
 	background-color: white;
 	position: absolute;
 	z-index: 1000;
+	
+	@media (min-width: $width-before-column-collapse) {
+		.bubble-filter-tag-container-column {
+			float: left;
+		}
+	}
 
 	.bubble-filter-tag-container-column {
 		padding: 15px;
 		margin: 0;
-		float: left;
 		list-style-type: none;
 
 		li {

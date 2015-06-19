@@ -27,9 +27,9 @@
 
 			for(var tag in options.tags[tagParent]) {
 				var $tagElement = $(document.createElement('li')).addClass('bubble-filter-tag')
-																 .attr('id', 'filter-tag-'+slugify(tag))
-																 .data('value', tag)
-																 .text(options.tags[tagParent][tag]);
+																 .attr('id', 'filter-tag-'+slugify(options.tags[tagParent][tag]))
+																 .data('value', options.tags[tagParent][tag])
+																 .text(tag);
 				$tagElement.click(handle_tag_click);
 				$tagColumnElement.append($tagElement);
 			}
@@ -61,16 +61,18 @@
 
 	// Default options
 	$.fn.bubbleFilter.defaults = {
-		placeholderText:		'Click here to select attributes to filter by',
-		selectedTagCallback:	undefined,
-		closeButtonClass:		'fa fa-close',
+		placeholderText:     'Click here to select attributes to filter by',
+		selectedTagCallback: undefined,
+		closeButtonClass:    'fa fa-close',
+		scrollToInput:       true,
+		scrollOffset:        90,
 	};
 
 	function handle_tag_click(event)
 	{
 		var $eventTarget = $(event.target);
 
-		if($('#tag-'+$eventTarget.data('value')).length == 0) {
+		if($('#tag-'+slugify($eventTarget.data('value'))).length == 0) {
 
 			// add the selected value to the selected tag values array
 			selectedTagValues.push($eventTarget.data('value'));
@@ -87,6 +89,10 @@
 			}
 			// and append the new element to it
 			$inputElement.append($newSelectedTag);
+
+			if(options.scrollToInput) {
+				$('html, body').animate({'scrollTop': ($inputElement.offset().top - options.scrollOffset)});;
+			}
 
 			// call back to the caller and let them know that the values have been updated if they defined a callback function
 			if('selectedTagCallback' in options) {
@@ -144,3 +150,4 @@
 			.replace(/-+$/, '');            // Trim - from end of text
 	}
 }(jQuery));
+
