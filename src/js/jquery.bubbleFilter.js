@@ -23,7 +23,9 @@
 			$tagColumnElement.addClass('bubble-filter-tag-container-column')
 							 .css('width', (100 / Object.keys(options.tags).length)+"%");
 
-			$tagColumnElement.append($(document.createElement('li')).append($(document.createElement('h3')).text(tagParent)));
+			if(tagParent) {
+				$tagColumnElement.append($(document.createElement('li')).append($(document.createElement('h3')).text(tagParent)));
+			}
 
 			for(var tag in options.tags[tagParent]) {
 				var $tagElement = $(document.createElement('li')).addClass('bubble-filter-tag')
